@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheets/create.css">
+    <title>Create Task</title>
+</head>
+
+<body>
+    <div>
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title">
+    </div>
+
+    <div>
+        <label for="desc">Task description</label>
+        <div>
+            <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+
+    <div>
+        <label for="starts">Starting Date</label>
+        <input type="date" name="starts" id="starts">
+    </div>
+
+    <div>
+        <label for="ends">End Date</label>
+        <input type="date" name="ends" id="ends">
+    </div>
+
+    <div>
+        <label for="urgency">Is it urgent?</label>
+        <div>
+            <label for="yes">Yes</label>
+            <input type="radio" name="urgency" value="true" id="yes">
+        </div>
+
+        <div>
+            <label for="no">No</label>
+            <input type="radio" name="urgency" id="not">
+        </div>
+    </div>
+
+    <button id="send">Send</button>
+    <script src="../scripts/createTask.js"></script>
+</body>
+
+</html>
