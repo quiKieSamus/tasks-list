@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100vw;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.task {
+    border: silver 2px solid;
+    border-radius: 5px;
+    width: 50vw;
+    text-align: center;
+}
+
+.task:hover {
+    background-color: #202020;
+    color: white;
+}
+
+.create-task {
+    border-radius: 100px;
+    border: none;
+    background-color: green;
+    color: greenyellow;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    bottom: 0;
+    margin: auto 5px 5px auto;
+    right: 0;
+    font-size: 40px;
+}
+
+.create-task:hover {
+    border: #202020 3px solid;
+}

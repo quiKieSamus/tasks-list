@@ -1,38 +1,44 @@
 const send = document.getElementById('send');
-
-
 const hostUrl = "http://localhost:8080";
 
 ////this can change, check your computer's ip
 const networkUrl = "http://192.168.0.189:8080"; 
 
+//filling up select tag
+document.addEventListener('DOMContentLoaded', () => {
+    fetch(`${hostUrl}/occupations`, {method:'POST'})
+    .then((response) => response.json())
+    .then((data) => {
+        const select = document.querySelector('#ocp');
+        for (let i = 0; i < data.length; i++) {
+            const option = document.createElement('option');
+            option.value = data[i].name;
+            option.innerHTML = data[i].name;
+            select.appendChild(option);
+        }
+    })
+    .catch((err) => err);
+});
+
 send.addEventListener('click', () => {
 
-    alert('clicked');
-    const title = document.querySelector('#title').value;
-    const desc = document.querySelector('#desc').value;
-    const starts = document.querySelector('#starts').value;
-    const ends = document.querySelector('#ends').value;
-    const urgencyTrue = document.querySelector('#yes').value;
-    const urgencyFalse = document.querySelector('#not').value;
-    let urgency = false;
-    if (!urgencyTrue) {
-        urgency = urgencyFalse
-    }
-    urgency = urgencyTrue;
-
+    const user = document.querySelector('#user').value;
+    const name = document.querySelector('#name').value;
+    const lName = document.querySelector('#lName').value;
+    const bDay = document.querySelector('#bday').value;
+    const ocp = document.querySelector('#ocp').value;
     const data = {
-        title: title,
-        desc: desc,
-        starts: starts,
-        ends: ends,
-        urgency: urgency
+        user: user,
+        name: name,
+        lName: lName,
+        bDay: bDay,
+        ocp: ocp
+        
     };
-    console.log(data);
 
     const fetchParams = {
         headers: {
-            "content-type": "application/json; charset=UTF-8"
+            "content-type": "application/json; charset=UTF-8" //important
         },
         body: JSON.stringify(data),
         method: "POST"
@@ -41,7 +47,7 @@ send.addEventListener('click', () => {
 
     /*
         fetch can be used to make http requests
-        in this case we do a post request to the server
+        in this case we do a get request to the server
         sending data on the notes to add
 
         in this case we are sending a json
@@ -55,7 +61,7 @@ send.addEventListener('click', () => {
         
         in this example we store all configurations in an object called fetchParams which, at the time of writing this commentary, is above)
     */
-    fetch(`${hostUrl}/tasks/createTask`, fetchParams)
+    fetch(`${hostUrl}/signUp`, fetchParams)
 
         .then((data) => {
 
@@ -66,7 +72,6 @@ send.addEventListener('click', () => {
         .then((res) => {
 
             console.log(res)
-            window.location.replace("http://localhost:8080/tasks/createTask");
 
         })
 
