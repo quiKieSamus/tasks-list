@@ -64,9 +64,9 @@ send.addEventListener('click', () => {
         })
 
         .then((res) => {
-
-            console.log(res)
-            window.location.replace("http://localhost:8080/tasks/createTask");
+            setTimeout(() => {
+                window.location.replace("http://localhost:8080/tasks");
+            }, 2000);
 
         })
 

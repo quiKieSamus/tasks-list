@@ -73,6 +73,10 @@ app.post("/tasks/createTask", (req, res) => {
     newTasks.addTask(db);
 });
 
+app.delete("/tasks/deleteTask/:id", (req, res) => {
+    tasksModel.deleteTask(db, req.params.id);
+});
+
 app.post("/occupations", (req, res) => {
     res.json(ocp);
 });

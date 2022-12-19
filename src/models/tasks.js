@@ -24,6 +24,14 @@ class Task {
             res.json(results);
         });
     }
+
+    static deleteTask(dbCon, id) {
+        const query = `DELETE FROM tasks WHERE id='${id}'`;
+        dbCon.query(query, (err, results, fields) => {
+            if (err) throw err;
+            else console.log(results, fields);
+        });
+    }
 }
 
 module.exports = Task;
