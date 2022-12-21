@@ -73,8 +73,15 @@ app.post("/tasks/createTask", (req, res) => {
     newTasks.addTask(db);
 });
 
+
+
 app.delete("/tasks/deleteTask/:id", (req, res) => {
     tasksModel.deleteTask(db, req.params.id);
+});
+
+app.patch("/tasks/updateTask", (req, res) => {
+    console.log(req.body);
+    tasksModel.updateTask(db, req.body);
 });
 
 app.post("/occupations", (req, res) => {

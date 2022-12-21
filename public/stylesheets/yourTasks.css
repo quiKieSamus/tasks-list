@@ -5,6 +5,7 @@
 body, html {
     width: 100vw;
     margin: 0;
+    background-color: #1f12ff;
 }
 
 .container {
@@ -13,9 +14,10 @@ body, html {
 }
 
 .task {
-    border: silver 2px solid;
+    border: #291fe4 0.3px solid;
     border-radius: 5px;
-    width: 50vw;
+    background-color: rgb(163, 161, 161);
+    width: 33.3333333vw;
     text-align: center;
 }
 

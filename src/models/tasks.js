@@ -32,6 +32,20 @@ class Task {
             else console.log(results, fields);
         });
     }
+
+    static updateTask(dbCon, items) {
+        const query = `UPDATE tasks 
+                        SET title='${items.title}', 
+                        starts = '${items.starts}',
+                        ends = '${items.ends}',
+                        description = '${items.desc}'
+                        WHERE id='${items.id}'`;
+
+        dbCon.query(query, (err, results, fields) => {
+            if (err) throw err;
+            console.log("modified");
+        });
+    }
 }
 
 module.exports = Task;

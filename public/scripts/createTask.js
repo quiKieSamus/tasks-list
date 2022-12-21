@@ -4,11 +4,10 @@ const send = document.getElementById('send');
 const hostUrl = "http://localhost:8080";
 
 ////this can change, check your computer's ip
-const networkUrl = "http://192.168.0.189:8080"; 
+const networkUrl = "http://192.168.0.189:8080";
 
 send.addEventListener('click', () => {
 
-    alert('clicked');
     const title = document.querySelector('#title').value;
     const desc = document.querySelector('#desc').value;
     const starts = document.querySelector('#starts').value;
@@ -62,13 +61,9 @@ send.addEventListener('click', () => {
             return data.json();
 
         })
-
-        .then((res) => {
-            setTimeout(() => {
-                window.location.replace("http://localhost:8080/tasks");
-            }, 2000);
-
-        })
-
         .catch((err) => console.log(err));
+
+    setTimeout(() => {
+        location.href = `${hostUrl}/tasks`;
+    }, 1000);
 })
