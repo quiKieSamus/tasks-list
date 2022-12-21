@@ -40,7 +40,7 @@ app.post('/signUp', (req, res) => {
 
     const user = new userModel(username, name, lName, bDay, occupation);
 
-    user.insertUserToDB(db);
+    userModel.addUser(db, user);
 });
 
 app.get('/tasks', (req, res) => {

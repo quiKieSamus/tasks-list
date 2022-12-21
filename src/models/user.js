@@ -7,8 +7,8 @@ class User {
         this.title = title;
     }
 
-    insertUserToDB(dbCon) {
-        let query = `INSERT INTO users(username, name, last_name, age, profession) VALUES ('${this.username}', '${this.name}', '${this.lastName}', '${this.age}', '${this.title}')`;
+    static addUser(dbCon, user) {
+        let query = `INSERT INTO users(username, name, last_name, age, profession) VALUES ('${user.username}', '${user.name}', '${user.lastName}', '${user.age}', '${user.title}')`;
 
         dbCon.query(query, (err, results, fields) => {
             if (err) {
