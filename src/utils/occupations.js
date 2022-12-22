@@ -14,6 +14,10 @@ const occupations = [
     {
         name: "Student",
         area: "Education"
+    },
+    {
+        name: "Civil Engineer",
+        area: "Engineering"
     }
 ];
 
