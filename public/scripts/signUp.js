@@ -2,38 +2,41 @@ const send = document.getElementById('send');
 const hostUrl = "http://localhost:8080";
 
 ////this can change, check your computer's ip
-const networkUrl = "http://192.168.0.189:8080"; 
+const networkUrl = "http://192.168.0.189:8080";
 
 //filling up select tag
 document.addEventListener('DOMContentLoaded', () => {
-    fetch(`${hostUrl}/occupations`, {method:'POST'})
-    .then((response) => response.json())
-    .then((data) => {
-        const select = document.querySelector('#ocp');
-        for (let i = 0; i < data.length; i++) {
-            const option = document.createElement('option');
-            option.value = data[i].name;
-            option.innerHTML = data[i].name;
-            select.appendChild(option);
-        }
-    })
-    .catch((err) => err);
+    fetch(`${hostUrl}/occupations`, { method: 'POST' })
+        .then((response) => response.json())
+        .then((data) => {
+            const select = document.querySelector('#ocp');
+            for (let i = 0; i < data.length; i++) {
+                const option = document.createElement('option');
+                option.value = data[i].name;
+                option.innerHTML = data[i].name;
+                select.appendChild(option);
+            }
+        })
+        .catch((err) => err);
 });
 
 send.addEventListener('click', () => {
 
     const user = document.querySelector('#user').value;
+    const password = document.querySelector('#pwd').value;
     const name = document.querySelector('#name').value;
     const lName = document.querySelector('#lName').value;
     const bDay = document.querySelector('#bday').value;
     const ocp = document.querySelector('#ocp').value;
+
     const data = {
         user: user,
+        password: password,
         name: name,
         lName: lName,
         bDay: bDay,
         ocp: ocp
-        
+
     };
 
     const fetchParams = {
@@ -70,10 +73,17 @@ send.addEventListener('click', () => {
         })
 
         .then((res) => {
+            const result = res;
+                
+            if (result.state === 'false') {
+                const warning = document.querySelector(".sign-err");
+                warning.style.display = "block";
+                warning.innerHTML = `User not added. Reason: ${result.reason}`;
+                warning.style.color = "color";
+            } else {
+                location.href = result.link;
+                return true;
+            }
 
-            console.log(res)
-
-        })
-
-        .catch((err) => console.log(err));
+        });
 })

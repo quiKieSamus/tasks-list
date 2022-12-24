@@ -4,7 +4,7 @@ const occupations = [
         area: "Engineering"
     },
     {
-        name: "biologist",
+        name: "Biologist",
         area: "Science & Technology"
     },
     {
@@ -14,6 +14,18 @@ const occupations = [
     {
         name: "Student",
         area: "Education"
+    },
+    {
+        name: "Civil Engineer",
+        area: "Engineering"
+    },
+    {
+        name: "Deadpool",
+        area: "Deadpool"
+    },
+    {
+        name: "Plumber",
+        area: "Plumbing"
     }
 ];
 

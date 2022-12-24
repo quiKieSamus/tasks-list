@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: #1aa9cb;
+    border: #000000 solid;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    color: #fbe923;
+}
+
+.user-input-section {
+    margin: 5px;
+}
+
+.label {
+    color: #fbe923;
+}
+
+.input {
+    width: 150px;
+    background-color: #000000;
+    color: white;
+    border: none;
+}
+
+.btn-login, .btn-signup {
+    margin-top: 5px;
+    background-color: #fbe923;
+    border: none;
+    width: 20%;
+}
+
+.btn-login:hover, .btn-signup:hover {
+    border: solid 1px #000000;
+}
+
+.login-err, .sign-err {
+    display: none;
+}
