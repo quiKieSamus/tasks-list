@@ -44,6 +44,9 @@ class User {
                     if (bcrypt.compareSync(password, hash)) {
                         console.log("exito");
                         return resolve(results);
+                    } else {
+                        console.log("contraseña errónea");
+                        return rejected(results);
                     }
                 }
 
