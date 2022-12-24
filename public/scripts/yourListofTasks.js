@@ -4,18 +4,19 @@ const localhost = "http://localhost:8080/tasks";
 
 
 
-fetch(localhost, { method: 'POST' })
+fetch(location.href, { method: 'POST' })
     .then((res) => res.json())
     .then((data) => {
-        for (let i = 0; i < data.length; i++) {
+        console.log(data);
+        for (let i = 0; i < data.results.length; i++) {
             const newItem = document.createElement('div');
             newItem.className = "task";
             newItem.innerHTML = `
                 <span><button class="edit" id="edit${i}">EDIT TASK</button><button class="delete" id="delete${i}">x</button></span>
-                <p>${data[i].id}</p>
-                <h3>${data[i].title}</h3>
-                <span>Begins:<span>${data[i].starts.replace('T04:00:00.000Z', "")}</span>; Ends: <span>${data[i].ends.replace('T04:00:00.000Z', "")}</span></span>
-                <p>${data[i].description}</p>
+                <p>${data.results[i].id}</p>
+                <h3>${data.results[i].title}</h3>
+                <span>Begins:<span>${data.results[i].starts.replace('T04:00:00.000Z', "")}</span>; Ends: <span>${data.results[i].ends.replace('T04:00:00.000Z', "")}</span></span>
+                <p>${data.results[i].description}</p>
             `;
             container.appendChild(newItem);
 
@@ -98,5 +99,9 @@ fetch(localhost, { method: 'POST' })
         }
     })
     .catch((err) => err);
+
+const createTask = document.querySelector(".link-create-class");
+
+createTask.href = `${location.href}/createTask`;
 
 

@@ -5,42 +5,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../stylesheets/create.css">
+    <link rel="stylesheet" href="../stylesheets/userform.css">
     <title>Create Task</title>
 </head>
 
 <body>
-    <div>
-        <label for="user">Username</label>
-        <input type="text" name="user" id="user">
-    </div>
-
-    <div>
-        <label for="name">Name</label>
-        <div>
-            <input type="text" name="name" id="name">
+    <div class="container">
+        <h1 class="title">Task-List</h1>
+        <span class="sign-err"></span>
+        <div class="user-input-section">
+            <label for="user">Username</label>
+            <input class="input" type="text" name="user" id="user">
         </div>
+
+        <div class="user-input-section">
+            <label for="password">Password</label>
+            <input class="input" type="password" name="password" id="pwd" class="pwd">
+        </div>
+
+        <div class="user-input-section">
+            <label for="name">Name</label>
+            <input type="text" name="name" class="input" id="name">
+        </div>
+
+        <div class="user-input-section">
+            <label for="lName">Last Name</label>
+            <input type="text" class="input" name="lName" id="lName">
+        </div>
+
+
+        <div class="user-input-section">
+            <label for="bday">Birthdate</label>
+            <input class="input" type="date" name="bday" id="bday">
+        </div>
+
+        <div class="user-input-section">
+            <label for="ocp">Occupation</label>
+            <select name="ocp" class="input" id="ocp">
+
+            </select>
+        </div>
+        <button class="btn-signup" id="send">Send</button>
     </div>
 
-    <div>
-        <label for="lName">Last Name</label>
-        <input type="text" name="lName" id="lName">
-    </div>
 
-    <div>
-        <label for="bday">Birthdate</label>
-        <input type="date" name="bday" id="bday">
-    </div>
-
-    <div>
-        <label for="ocp">Occupation</label>
-        <select name="ocp" id="ocp">
-            
-        </select>
-    </div>
-
-
-    <button id="send">Send</button>
     <script src="../scripts/signUp.js"></script>
 </body>
 
